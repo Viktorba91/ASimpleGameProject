@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ASimpleGameProject.GameFolder.Levels;
 using ASimpleGameProject.GameFolder.Menu;
 using ASimpleGameProject.GameFolder.Player;
+using ASimpleGameProject.GameFolder.SaveLoad;
+using ASimpleGameProject.Items;
 using ASimpleGameProject.Menu;
 using ASimpleGameProject.Player;
 
@@ -15,11 +17,22 @@ namespace ASimpleGameProject.GameFolder
     {
         public static PlayerCharacter Player { get; private set; }
         public static PlayerHUD PlayerUI { get; private set; }
+        public static int BossCountdown { get; set; }
+        public static bool isBoss { get; set; } = false;
 
-
+        //New Game:
         public Game()
         {
             StartGame();
+        }
+        //Load Game:
+        public Game(PlayerCharacter player)
+        {
+            Player = player;
+            
+            PlayerUI = new PlayerHUD();
+            
+            Town town = new Town();
         }
         private void StartGame()
         {
@@ -33,8 +46,18 @@ namespace ASimpleGameProject.GameFolder
             Console.WriteLine("Press any key to start your adventure");
             Console.ReadKey();
 
-            //Starts the game in Town
-            Town town = new Town();       
+            Player.Inventory = new List<Item>();
+            //TESTING ITEMS!
+            Player.Inventory.Add(new Item("Mana Brew", "Consumable", 1, 1));
+            Player.Inventory.Add(new Item("Mana Brew", "Consumable", 3, 1));
+            Player.Inventory.Add(new Item("Healing Potion", "Consumable", 3, 1));
+            Player.Inventory.Add(new Item("Healing Potion", "Consumable", 7, 1));
+            Player.Inventory.Add(new Item("Mana Brew", "Consumable", 1, 1));
+            Player.Inventory.Add(new Item("Mana Brew", "Consumable", 2, 1));
+            Player.Inventory.Add(new Item("Mana Brew", "Consumable", 1, 1));
+            Player.Inventory.Add(new Item(new Weapon("Sword", "Surrender and Succomb, Twin Razors of Horrid Dreams", 1, 2, 2, 1, 1)));
+            
+            Town town = new Town();
 
         }
         private PlayerCharacter CreatePlayer()
@@ -54,6 +77,7 @@ namespace ASimpleGameProject.GameFolder
             Player.CurrentExperience += experience;
 
                 // Level up if enough experience is gained, and set remaining exp as current exp:
+                //!!! Should be placed in PlayerCharacter class
             if (Player.CurrentExperience > Player.NeededExperience)
             {
                 int remainingExp = Player.CurrentExperience - Player.NeededExperience;
@@ -61,6 +85,13 @@ namespace ASimpleGameProject.GameFolder
                 Player.CurrentExperience = remainingExp;
                 Player.NeededExperience = Player.NeededExperience + 500;
                 
+                Player.MaxHealth += 5;
+                Player.CurrentHealth = Player.MaxHealth;
+                Player.MaxMana += 5;
+                Player.CurrentMana = Player.MaxMana;
+                Player.AttackPower += 5;
+                Player.Agility += 5;
+
                 //Level up message
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
                 Console.ForegroundColor = ConsoleColor.Black;

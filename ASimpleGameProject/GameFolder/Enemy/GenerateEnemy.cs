@@ -20,13 +20,14 @@ namespace ASimpleGameProject.GameFolder.Enemy
                 {
                     // Read and display lines from the file until the end of
                     // the file is reached.
-                    string[] names = File.ReadAllLines("Enemy.txt");
+                    //if()
+                    //string[] names = File.ReadAllLines("Enemy.txt");
 
-                    int randomLineNum = rnd.Next(names.Length);
+                    //int randomLineNum = rnd.Next(names.Length);
 
-                    Console.WriteLine(names[randomLineNum]);
+                    //Console.WriteLine(names[randomLineNum]);
 
-                    enemy.Name = names[randomLineNum];
+                    //enemy.Name = names[randomLineNum];
                 }
             }
             catch (Exception e)

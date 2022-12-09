@@ -15,6 +15,14 @@ namespace ASimpleGameProject.GameFolder.Functions
         {
             Console.Clear();
 
+            if(currentPosition == "MainMenu")
+            {
+                UpdateConsoleView.UpdateView("Not Available");
+                Console.ReadKey();
+                Environment.Exit(1);
+            }
+            
+
             Console.SetCursorPosition(18, 7);
             Console.WriteLine("Work in progress");
             Console.SetCursorPosition(18, 8);
@@ -23,6 +31,7 @@ namespace ASimpleGameProject.GameFolder.Functions
 
             if (currentPosition == "MainMenu")
             {
+                
                 Console.Clear();
                 MainMenu main = new MainMenu();
             }

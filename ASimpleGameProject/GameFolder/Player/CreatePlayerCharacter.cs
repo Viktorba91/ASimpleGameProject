@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASimpleGameProject.GameFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -22,6 +23,7 @@ namespace ASimpleGameProject.Player
         {
             int classId = 0;
 
+            UpdateConsoleView.UpdateView("Menu");
             //Int 0 = Warrior, 1 = Wizard, 2 = Rogue
             string[] classSelection =
             {

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dWBEfHmjRXnSht4xNjYrVmyDlxhl4wivYNo3ijQQSSI5CqgePBMAgAUXhb+w7WwVhS9Em9y1L7hxqKJZNVKJQQ==",
+  "dgSpecHash": "L0OKdowQ9jH5ROnrsbWTsaT+SS17zRLvFqp4Hk20VD84NZiTjF/f2ffe2bdr8gVRbFFm4KTqMIy8uY4V+7fOXg==",
   "success": true,
-  "projectFilePath": "C:\\GetAcademy\\MellomUkene\\ASimpleGameProject\\ASimpleGameProject\\ASimpleGameProject.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Viktor\\Downloads\\ASimpleGameProject-main\\ASimpleGameProject-main\\ASimpleGameProject\\ASimpleGameProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Viktor\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

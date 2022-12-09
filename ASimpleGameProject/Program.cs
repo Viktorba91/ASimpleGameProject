@@ -2,7 +2,6 @@
 using ASimpleGameProject.GameFolder.Enemy;
 using ASimpleGameProject.Menu;
 using ASimpleGameProject.Player;
-
 namespace ASimpleGameProject
 {
     internal class Program
@@ -11,7 +10,6 @@ namespace ASimpleGameProject
         {
             //Initialize the game from MainMenu:
             MainMenu mainMenu = new MainMenu();
-            
         }
     }
 }

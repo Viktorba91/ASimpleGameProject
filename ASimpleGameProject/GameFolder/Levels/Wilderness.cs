@@ -26,8 +26,8 @@ namespace ASimpleGameProject.GameFolder.Levels
 
             if (choice == 0) { Battle battle = new Battle(); }
             else if (choice == 1) { WorkInProgress.NotAvailable("The Wilderness"); WildernessAction(); }
-            else if (choice == 2) { WorkInProgress.NotAvailable("The Wilderness"); WildernessAction(); }
-            else if (choice == 3) { Town town = new Town();  }
+            else if (choice == 2) { BrowseInventory inventory = new BrowseInventory(); }
+            else if (choice == 3) { Game.Player.BossCountdown = Game.Player.MaxBossCountdown; Town town = new Town();  }
         }
 
         //public void FoundEnemy(PlayerCharacter player)

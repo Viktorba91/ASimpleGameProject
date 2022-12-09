@@ -1,6 +1,7 @@
 ﻿using ASimpleGameProject.GameFolder.Functions;
 using ASimpleGameProject.GameFolder.Menu;
 using ASimpleGameProject.GameFolder.Player;
+using ASimpleGameProject.GameFolder.SaveLoad;
 using ASimpleGameProject.Menu;
 using ASimpleGameProject.Player;
 using System;
@@ -39,8 +40,8 @@ namespace ASimpleGameProject.GameFolder.Levels
             else if (choice == 1) { Tavern tavern = new Tavern(); }
             
             //Currently not implemented
-            else if (choice == 2) { WorkInProgress.NotAvailable("Town"); TownAction(); }
-            else if (choice == 3) { WorkInProgress.NotAvailable("Town"); TownAction(); }
+            else if (choice == 2) { ClassTrainer trainer = new ClassTrainer(); }
+            else if (choice == 3) { SaveGame save = new SaveGame(Game.Player); }
 
             else if (choice == 4) { Console.Clear(); MainMenu mainMenu = new MainMenu(); }
 

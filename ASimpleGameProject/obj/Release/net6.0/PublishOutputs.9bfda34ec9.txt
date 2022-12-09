@@ -1,0 +1,5 @@
+C:\Users\Viktor\Desktop\Test\ASimpleGameProject.exe
+C:\Users\Viktor\Desktop\Test\ASimpleGameProject.dll
+C:\Users\Viktor\Desktop\Test\ASimpleGameProject.deps.json
+C:\Users\Viktor\Desktop\Test\ASimpleGameProject.runtimeconfig.json
+C:\Users\Viktor\Desktop\Test\ASimpleGameProject.pdb

@@ -7,19 +7,32 @@ using System.Threading.Tasks;
 
 namespace ASimpleGameProject.Items
 {
-    internal class Weapon
+    public class Weapon : Item
     {
-        public string WeaponName { get; private set; }
-        public string WeaponType { get; private set; }
-        public int RequiredLevel { get; private set; }
+        public string WeaponType { get;  set; }
+        public string WeaponName { get;  set; }
+        public int RequiredLevel { get; set; }
         public int Health { get; private set; }
         public int Strength { get; private set; }
         public int Mana { get; private set; }
         public int Agility { get; private set; }
         
         Random rnd = new Random();
-
-        public Weapon(PlayerCharacter player)
+        public Weapon()
+        {
+            
+        }
+        public Weapon(string weaponType, string name, int reqLvl, int hp, int str, int mp, int agi)
+        {
+            WeaponType = weaponType;
+            WeaponName = name;
+            RequiredLevel = reqLvl;
+            Health = hp;
+            Strength = str;
+            Mana = mp;
+            Agility = agi;
+        }
+        public Weapon(PlayerCharacter player) : base("Weapon","Weapon", 1, 1)
         {
             WeaponType = GenerateWeaponType();
             WeaponName = GenerateWeaponName(WeaponType);
@@ -29,10 +42,10 @@ namespace ASimpleGameProject.Items
             Strength = CalculateInteger(player);
             Mana = CalculateInteger(player);
             Agility = CalculateInteger(player);
+            
         }
         private string GenerateWeaponType()
         {
-            
             string[] weaponType = { "Sword", "Staff", "Daggers" };
             int weaponTypeIndex = rnd.Next(weaponType.Length);
             WeaponType = weaponType[weaponTypeIndex];

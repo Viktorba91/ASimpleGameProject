@@ -17,7 +17,7 @@ namespace ASimpleGameProject.Player
                 Console.WriteLine("");
                 Console.Write("        ");
                 Console.Write("  The Warrior is a tough melee fighter who     " +
-                    "\n          prefers flat damage with a big health pool.\n");
+                    "\n          prefers static damage with a big health pool.\n");
                 Console.WriteLine("\n          Warriors favours Health and Strength bonuses.");
             }
             //Wizard
@@ -27,7 +27,7 @@ namespace ASimpleGameProject.Player
                 Console.WriteLine("");
                 Console.Write("        ");
                 Console.Write("  The Wizard use spells to overpower foes      " +
-                    "\n          who stand in his way.                      \n");
+                    "\n          who stand in his way.                        \n");
                 Console.WriteLine("\n          Wizards favour Mana bonus.                        ");
             }
             //Rogue

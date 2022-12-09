@@ -17,9 +17,9 @@ namespace ASimpleGameProject.GameFolder.Enemy
 
         public EnemyCharacter()
         {
-            EnemyGenerate(Game.Player);
+            EnemyGenerate(Game.Player, Game.isBoss);
         }
-        private void EnemyGenerate(PlayerCharacter player)
+        private void EnemyGenerate(PlayerCharacter player, bool isBoss)
         {
             Random rnd = new Random();
            
@@ -29,7 +29,16 @@ namespace ASimpleGameProject.GameFolder.Enemy
                 {
                     // Read and display lines from the file until the end of
                     // the file is reached.
-                    string[] names = File.ReadAllLines("Enemy.txt");
+                    string[] names = { };
+                    if (isBoss)
+                    {
+                        names = File.ReadAllLines("Boss.txt");
+                    }
+                    else
+                    {
+                        names = File.ReadAllLines("Enemy.txt");
+                    }
+                    
 
                     int randomLineNum = rnd.Next(names.Length);
 
@@ -51,7 +60,12 @@ namespace ASimpleGameProject.GameFolder.Enemy
             MaxHealth = rnd.Next(player.Level * 2 + 100);
             CurrentHealth = MaxHealth;
             AttackPower = rnd.Next(player.Level * 2 + 20);
-           
+            if (isBoss)
+            {
+                MaxHealth = MaxHealth * 2;
+                CurrentHealth = MaxHealth;
+                AttackPower = Game.Player.AttackPower + AttackPower;
+            }
 
         }
     }

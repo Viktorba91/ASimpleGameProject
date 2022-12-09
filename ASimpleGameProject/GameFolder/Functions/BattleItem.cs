@@ -1,4 +1,6 @@
-﻿using ASimpleGameProject.GameFolder.Menu;
+﻿using ASimpleGameProject.GameFolder.Levels;
+using ASimpleGameProject.GameFolder.Menu;
+using ASimpleGameProject.GameFolder.Player;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +11,13 @@ namespace ASimpleGameProject.GameFolder.Functions
 {
     internal class BattleItem
     {
-        string[] ConsumableChoice = {"Healing Potion", "Mana Potion", "Smoke Bomb", "Back" };
+        string[] ConsumableChoice = {"Healing Potion", "Mana Potion   ", "Smoke Bomb", "Back" };
         
         public bool Consumables()
         {
+           
             bool usedConsumable = false;
-
+           
             int choice = Navigation.MultipleChoice(false, ConsumableChoice);
             
             //Healing Potion
