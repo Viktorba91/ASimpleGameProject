@@ -22,8 +22,9 @@ namespace ASimpleGameProject.Items
         {
             
         }
-        public Weapon(string weaponType, string name, int reqLvl, int hp, int str, int mp, int agi)
+        public Weapon(string weaponType, string name, int reqLvl, int hp, int str, int mp, int agi) : base(name, weaponType, 1, 1)
         {
+            IsWeapon = true;
             WeaponType = weaponType;
             WeaponName = name;
             RequiredLevel = reqLvl;
@@ -32,6 +33,16 @@ namespace ASimpleGameProject.Items
             Mana = mp;
             Agility = agi;
         }
+        //public Weapon(string weaponType, string name, int reqLvl, int hp, int str, int mp, int agi)
+        //{
+        //    WeaponType = weaponType;
+        //    WeaponName = name;
+        //    RequiredLevel = reqLvl;
+        //    Health = hp;
+        //    Strength = str;
+        //    Mana = mp;
+        //    Agility = agi;
+        //}
         public Weapon(PlayerCharacter player) : base("Weapon","Weapon", 1, 1)
         {
             WeaponType = GenerateWeaponType();

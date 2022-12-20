@@ -66,12 +66,12 @@ namespace ASimpleGameProject.GameFolder.Levels
         }
 
         //Return to battle from SpecialAtk or Inventory Meny:
-        public Battle(EnemyCharacter enemy, SpecialAttack specialAtk)
+        public Battle(EnemyCharacter enemy, SpecialAttack specialAtk, bool isInvalid = false)
         {
             Enemy = enemy;
             UpdateConsoleView.UpdateView("Battle");
             Console.SetCursorPosition(30, 13);
-            if(Game.Player.CurrentMana >= specialAtk.ManaCost && specialAtk.Name != "Go back")
+            if(Game.Player.CurrentMana >= specialAtk.ManaCost && specialAtk.Name != "Go back" && !isInvalid)
             {
                 Fight(enemy, UsedItem, specialAtk);
             }
@@ -99,7 +99,7 @@ namespace ASimpleGameProject.GameFolder.Levels
                     }
                 case 2: //Consumable items
                     {
-                        BattleItem item = new BattleItem();
+                        BattleInventory item = new BattleInventory();
                         UsedItem = item.Consumables();
                         if (UsedItem)
                         {
@@ -118,6 +118,7 @@ namespace ASimpleGameProject.GameFolder.Levels
                         CheckPlayerHP();
                         if(Game.Player.CurrentHealth > 0)
                         {
+                            Game.Player.BossCountdown = Game.Player.MaxBossCountdown;
                             Console.ReadKey();
                             Wilderness wilderness = new Wilderness();
                         }
@@ -143,7 +144,14 @@ namespace ASimpleGameProject.GameFolder.Levels
                     Game.Player.CurrentMana = Game.Player.MaxMana;
                 }
             }
-            
+            else if (specialAtk != null)
+            {
+                enemy.CurrentHealth -= specialAtk.Damage;
+                Game.Player.CurrentMana -= specialAtk.ManaCost;
+                UpdateConsoleView.UpdateView("Battle");
+                Console.WriteLine($"{Game.Player.Name} used {specialAtk.Name} for {specialAtk.Damage} damage.");
+            }
+
             //Check if enemy is still alive
             CheckEnemyHP(enemy);
 
@@ -162,13 +170,7 @@ namespace ASimpleGameProject.GameFolder.Levels
                     Console.WriteLine($"You heal for {Game.Player.MaxHealth / 2}.");
                     UsedItem = false;
                 }
-                else if (specialAtk != null)
-                {
-                    enemy.CurrentHealth -= specialAtk.Damage;
-                    Game.Player.CurrentMana -= specialAtk.ManaCost;
-                    UpdateConsoleView.UpdateView("Battle");
-                    Console.WriteLine($"{Game.Player.Name} used {specialAtk.Name} for {specialAtk.Damage} damage.");
-                }
+                
                 else if (!usedItem)
                 {
                     UpdateConsoleView.UpdateView("Battle");
@@ -246,7 +248,7 @@ namespace ASimpleGameProject.GameFolder.Levels
                 Weapon weapon = new Weapon(Game.Player);
                 Item itemWeapon = new Item(weapon);
                 Game.Player.Inventory.Add(itemWeapon);
-                CurrencyLoot = rnd.Next(Game.Player.Level * 100, 200);
+                CurrencyLoot = rnd.Next(Game.Player.Level * 100, Game.Player.Level * 200);
                 Game.Player.Currency += CurrencyLoot;
 
                 Console.Clear();
@@ -266,28 +268,6 @@ namespace ASimpleGameProject.GameFolder.Levels
                 Console.WriteLine($"Name: {weapon.WeaponName} | Weapon Type: {weapon.WeaponType} | Required Level: {weapon.RequiredLevel}");
                 Console.WriteLine($"HP+{weapon.Health} | Strength+{weapon.Strength} | Mana+{weapon.Mana} | Agility+{weapon.Agility}");
                 Console.ReadKey();
-
-                //foreach(var item in Game.Player.Inventory)
-                //{
-                //    if(!item.IsWeapon)
-                //    {
-                //        continue;
-                //    }
-                //    else
-                //    {
-                //        try
-                //        {
-                //            Console.WriteLine(item.Weapon.WeaponName);
-                //        }
-                //        catch (Exception)
-                //        {
-                //            Console.WriteLine(item.ItemName);
-                //            throw;
-                //        }
-                       
-                //    }
-                //}
-                //Console.ReadKey();
 
             }
             else if (LootRoll <= 3 && LootRoll > 0)

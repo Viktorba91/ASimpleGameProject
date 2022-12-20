@@ -27,7 +27,8 @@ namespace ASimpleGameProject.GameFolder.Levels
             else if (choice == 1) { ShowInventory("Weapons"); }
             else if (choice == 2) { ShowInventory("Consumables"); }
             else if (choice == 3) { Wilderness wilderness = new Wilderness(); }
-
+            
+            
         }
 
         private void ShowInventory(string categoryChoice)
@@ -36,11 +37,15 @@ namespace ASimpleGameProject.GameFolder.Levels
             InventoryList = SortList(categoryChoice);
             int choice = InventoryNavigation.InventoryChoice(false, InventoryList, categoryChoice);
 
-            
+            if(InventoryList.ElementAt(choice).ItemType == "Sword")
+            {
+                Console.Clear();
+                Console.WriteLine(InventoryList.ElementAt(choice).ItemName);
+                Console.ReadKey();
+            }
             if (Game.Player.ClassName == "Warrior" && InventoryList.ElementAt(choice).ItemType == "Sword")
             {
                 Console.Clear();
-                WorkInProgress.NotAvailable("MainMenu");
 
                 Console.WriteLine(InventoryList.ElementAt(choice).Weapon.RequiredLevel);
                 Console.ReadKey();
@@ -77,6 +82,7 @@ namespace ASimpleGameProject.GameFolder.Levels
                 //Find duplicate amount
                 itemCount = Game.Player.Inventory.FindAll(x => x.ItemName == item.ItemName).Sum(s => s.ItemCount);
 
+                //TEST!!
                 if (isDuplicate)
                 {
                     Console.WriteLine("Found dupe");
@@ -94,17 +100,25 @@ namespace ASimpleGameProject.GameFolder.Levels
                     {
                         if (item.IsWeapon)
                         {
-                            StackList.Add(new Item(item.ItemName, item.ItemType, itemCount, item.ItemPrice));
+                            StackList.Add(new Item(new Weapon(item.Weapon.WeaponType, item.Weapon.WeaponName, item.Weapon.RequiredLevel, 
+                                                              item.Weapon.Health, item.Weapon.Strength, item.Weapon.Mana, item.Weapon.Agility)));
                         }
                     }
                     else
                     {
-                        StackList.Add(new Item(item.ItemName, item.ItemType, itemCount, item.ItemPrice));
+                        if (item.IsWeapon)
+                        {
+                            StackList.Add(new Item(new Weapon(item.Weapon.WeaponType, item.Weapon.WeaponName, item.Weapon.RequiredLevel,
+                                                              item.Weapon.Health, item.Weapon.Strength, item.Weapon.Mana, item.Weapon.Agility)));
+                        }
+                        else
+                        {
+                            StackList.Add(new Item(item.ItemName, item.ItemType, itemCount, item.ItemPrice));
+                        }
                     }
                 }
             }
-            Console.WriteLine("Press enter to see the stacked list.");
-            //Console.ReadKey();
+            
 
             //foreach (var item in StackList)
             //{

@@ -15,7 +15,6 @@ namespace ASimpleGameProject.Items
         public int ItemCount { get; set; }
         public int ItemPrice { get; set; }
         public bool IsWeapon {get; set; }
-        //public int RequiredLevel { get; set; }
         public Weapon Weapon { get; set; }
 
         public bool IsButton { get; set; }
@@ -31,17 +30,13 @@ namespace ASimpleGameProject.Items
             ItemType = type;
             ItemCount = count;
             ItemPrice = price;
-            if (ItemType == "Sword" || ItemType == "Staff" || ItemType == "Daggers")
-            {
-                IsWeapon = true;
-            }
+            
         }
         public Item(Weapon weapon)
         {
             IsWeapon = true;
             ItemName = weapon.WeaponName;
             ItemType = weapon.WeaponType;
-            //RequiredLevel = weapon.RequiredLevel;
             ItemCount = 1;
             ItemPrice = weapon.RequiredLevel * 2;
             Weapon = weapon;

@@ -35,7 +35,9 @@ namespace ASimpleGameProject.GameFolder.Player
             Console.Write("AMOUNT");
             Console.SetCursorPosition(startX % optionsPerLine * spacingPerLine + 51, startY / optionsPerLine);
             Console.Write("ITEM TYPE");
-            
+            Console.SetCursorPosition(startX % optionsPerLine * spacingPerLine + 65, startY / optionsPerLine);
+            Console.WriteLine("Level Req");
+
             startY = 10;
 
             do
@@ -67,6 +69,11 @@ namespace ASimpleGameProject.GameFolder.Player
                         Console.Write(options[i].ItemCount);
                         Console.SetCursorPosition(startX + 42 + i % optionsPerLine * spacingPerLine, startY + i / optionsPerLine);
                         Console.Write(options[i].ItemType);
+                        if (options[i].IsWeapon)
+                        {
+                            Console.SetCursorPosition(startX + 60 + i % optionsPerLine * spacingPerLine, startY + i / optionsPerLine);
+                            Console.WriteLine(options[i].Weapon.RequiredLevel);
+                        }
                     }
 
                     Console.ForegroundColor = ConsoleColor.Gray;

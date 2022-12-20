@@ -67,8 +67,9 @@ namespace ASimpleGameProject.GameFolder.SaveLoad
                 {
                     Console.Clear();
                     Console.WriteLine("Could not load game from current slot.");
-                    throw;
+                    Console.ReadLine();
                     MainMenu menu = new MainMenu();
+                    throw;
                 }
                 
                 //List<Item> inventory = new List<Item>();

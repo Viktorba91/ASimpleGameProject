@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ASimpleGameProject.GameFolder.Functions
 {
-    internal class BattleItem
+    internal class BattleInventory
     {
         string[] ConsumableChoice = {"Healing Potion", "Mana Potion   ", "Smoke Bomb", "Back" };
         

@@ -48,6 +48,7 @@ namespace ASimpleGameProject.GameFolder
 
             Player.Inventory = new List<Item>();
             //TESTING ITEMS!
+            Player.Inventory.Add(new Item("Healing Potion", "Consumable", 3, 1));
             Player.Inventory.Add(new Item("Mana Brew", "Consumable", 1, 1));
             Player.Inventory.Add(new Item("Mana Brew", "Consumable", 3, 1));
             Player.Inventory.Add(new Item("Healing Potion", "Consumable", 3, 1));
@@ -55,8 +56,9 @@ namespace ASimpleGameProject.GameFolder
             Player.Inventory.Add(new Item("Mana Brew", "Consumable", 1, 1));
             Player.Inventory.Add(new Item("Mana Brew", "Consumable", 2, 1));
             Player.Inventory.Add(new Item("Mana Brew", "Consumable", 1, 1));
-            Player.Inventory.Add(new Item(new Weapon("Sword", "Surrender and Succomb, Twin Razors of Horrid Dreams", 1, 2, 2, 1, 1)));
-            
+            Player.Inventory.Add(new Item(new Weapon("Sword", "Stormbringer", 1, 2, 2, 1, 1)));
+
+            //Console.WriteLine(Player.Inventory.ElementAt(7).Weapon.RequiredLevel);
             Town town = new Town();
 
         }

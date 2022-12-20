@@ -64,7 +64,7 @@ namespace ASimpleGameProject.GameFolder.Enemy
             {
                 MaxHealth = MaxHealth * 2;
                 CurrentHealth = MaxHealth;
-                AttackPower = Game.Player.AttackPower + AttackPower;
+                AttackPower =+ 25;
             }
 
         }

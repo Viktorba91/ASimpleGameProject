@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Viktor\\Downloads\\ASimpleGameProject-main\\ASimpleGameProject-main\\ASimpleGameProject\\ASimpleGameProject.csproj": {}
+    "C:\\GetAcademy\\GitHub\\Verksted\\ASimpleGameProject\\ASimpleGameProject\\ASimpleGameProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Viktor\\Downloads\\ASimpleGameProject-main\\ASimpleGameProject-main\\ASimpleGameProject\\ASimpleGameProject.csproj": {
+    "C:\\GetAcademy\\GitHub\\Verksted\\ASimpleGameProject\\ASimpleGameProject\\ASimpleGameProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Viktor\\Downloads\\ASimpleGameProject-main\\ASimpleGameProject-main\\ASimpleGameProject\\ASimpleGameProject.csproj",
+        "projectUniqueName": "C:\\GetAcademy\\GitHub\\Verksted\\ASimpleGameProject\\ASimpleGameProject\\ASimpleGameProject.csproj",
         "projectName": "ASimpleGameProject",
-        "projectPath": "C:\\Users\\Viktor\\Downloads\\ASimpleGameProject-main\\ASimpleGameProject-main\\ASimpleGameProject\\ASimpleGameProject.csproj",
-        "packagesPath": "C:\\Users\\Viktor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Viktor\\Downloads\\ASimpleGameProject-main\\ASimpleGameProject-main\\ASimpleGameProject\\obj\\",
+        "projectPath": "C:\\GetAcademy\\GitHub\\Verksted\\ASimpleGameProject\\ASimpleGameProject\\ASimpleGameProject.csproj",
+        "packagesPath": "C:\\Users\\storm\\.nuget\\packages\\",
+        "outputPath": "C:\\GetAcademy\\GitHub\\Verksted\\ASimpleGameProject\\ASimpleGameProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Viktor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\storm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

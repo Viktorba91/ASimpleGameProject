@@ -30,7 +30,13 @@ namespace ASimpleGameProject.GameFolder.Menu
                     Console.SetCursorPosition(startX + i % optionsPerLine * spacingPerLine, startY + i / optionsPerLine);
 
                     if (i == currentSelection)
+                    {
                         Console.ForegroundColor = ConsoleColor.Green;
+                        if (options[i] == "Healing Potion"){
+                            //Add description
+                        }
+                    }
+                        
 
                     Console.Write(options[i]);
 

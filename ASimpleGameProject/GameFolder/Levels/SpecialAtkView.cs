@@ -12,6 +12,7 @@ namespace ASimpleGameProject.GameFolder.Levels
 {
     internal class SpecialAtkView
     {
+        private bool isInvalid = false;
         public SpecialAtkView(EnemyCharacter enemy)
         {
             SpecialAtkAction(enemy);
@@ -37,10 +38,11 @@ namespace ASimpleGameProject.GameFolder.Levels
             {
                 Console.WriteLine("You haven't learned any special attacks yet.");
                 Console.ReadKey();
+                isInvalid = true;
             }
             //int goback = Game.Player.SpecialAtk.FindIndex(n => n.Name == "Go back");
             //Game.Player.SpecialAtk.RemoveAt(goback);
-            Battle battle = new Battle(enemy, specialAtk);
+            Battle battle = new Battle(enemy, specialAtk, isInvalid);
         }
     }
 }
